@@ -24,3 +24,8 @@
     - In your local environment run `sudo tailscale set --exit-node=100.88.190.102` to use the azure vm as an exit node
 - Test azcopy: `azcopy sync "https://<storage_account_name>.blob.core.windows.net/<storage_container_name>/" "./" --recursive`
     - example: `azcopy sync "https://strgtailscale.blob.core.windows.net/codespaces-connect/" "./" --recursive`
+
+
+## debugging 
+- `sudo apt update` `sudo apt install dnsutils`
+- `dig <hostname>`
