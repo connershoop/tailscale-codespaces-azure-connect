@@ -1,11 +1,9 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "name": "Tailscale | Azcopy",
+  "build": {"dockerfile": "Dockerfile"},
   "runArgs": ["--device=/dev/net/tun"],
   "features": {
       "ghcr.io/devcontainers/features/azure-cli:1": {},
-      "ghcr.io/devcontainers/features/docker-in-docker:2": {},
-      "ghcr.io/devcontainers/features/github-cli:1": {},
-      "ghcr.io/mickeahlinder/devcontainer-features/tfenv:1": {},
       "ghcr.io/tailscale/codespace/tailscale": {}
   },
   "customizations": {
