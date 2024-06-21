@@ -34,7 +34,6 @@ This repository provides a straightforward approach to connect GitHub Codespaces
      - Approve your subnet routes from your Azure VM tailnet machine in the Tailscale admin console.
      - **Important: In Step 3: Add Azure DNS for your tailnet, specify the blob endpoint of your storage account (`<storage_account_name>.blob.core.windows.net`) as the search domain for the `168.63.129.16` nameserver.**
    - Configure the VM to allow IP forwarding by following this guide: [Advertise Subnet Routes](https://tailscale.com/kb/1019/subnets?tab=linux#advertise-subnet-routes)
-   - Follow the guide to set up the Tailscale client on an Azure VM: [Setup Tailscale Client on Azure VM](https://tailscale.com/kb/1142/cloud-azure-linux)
 
 ### Step 2: Connect Codespaces to Your Tailnet and SSH into VM
 
@@ -46,6 +45,7 @@ This repository provides a straightforward approach to connect GitHub Codespaces
   `ssh -i ./keys/<vm_key_file>.pem azureuser@<tailscale_machine_name_or_machine_address>`
   - If having permission issues, ensure correct permissions on your key file:
     `chmod 600 ./keys/<vm_key_file>.pem`
+  - **Note: If your VM is not exposing a public IP, it is possible the connection between your VM and codespaces was not correctly established. If you are having trouble connecting from codespaces to your VM, login to your VM and send a ping (`tailscale ping <codespace-address>`) to correctly establish the connection.**
 - While connected, verify the storage endpoint resolves to its private IP:
   `curl -v <storage_account_name>.blob.core.windows.net`
 - Disconnect from the VM and return to your codespace.
